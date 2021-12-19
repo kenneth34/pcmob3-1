@@ -76,10 +76,14 @@ function HomeScreen({ navigation }) {
       >
         <Text style={{ color: "red" }}>Reset</Text>
       </TouchableOpacity>
-      <FlatList style={styles.list} data={colorArray} renderItem={renderItem} />
+      <FlatList style={styles.list} 
+        data={colorArray} 
+        renderItem={renderItem}
+        numColumns={numColumns} />
     </View>
   );
 }
+
 
 const windowWidth = Dimensions.get("window").width;
 const numColumns = Math.round(windowWidth / 60);
@@ -128,6 +132,9 @@ const styles = StyleSheet.create({
  },
  list: {
    width: "100%",
+   flex: 1,
+   margin: 1,
+   height: Dimensions.get("window").width,
  },
  detailText: {
    fontSize:30,
